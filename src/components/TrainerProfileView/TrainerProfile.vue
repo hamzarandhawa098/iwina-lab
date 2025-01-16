@@ -1,12 +1,12 @@
 <template>
-    <div class="flex items-center space-x-6 ">
+    <div class="flex flex-col lg:flex-row items-center space-x-6 ">
       <img
         :src="image"
         alt="Profile"
         class="w-[200px] h-[200px] rounded-full object-cover"
       />
   
-      <div>
+      <div class="text-center lg:text-left">
         <h2 class="font-nunito font-semibold text-[32px] leading-[40px] tracking-[-1%] text-trainer-profile-title">
           {{ instructorName }}
         </h2>
@@ -14,7 +14,7 @@
           {{ title }}
         </p>
   
-        <div class="flex items-center space-x-5 mt-6">
+        <div class="flex justify-center lg:justify-normal items-center space-x-5 mt-6">
           <div
             v-for="(stat, index) in stats"
             :key="index"

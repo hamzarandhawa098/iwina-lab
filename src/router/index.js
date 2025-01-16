@@ -13,6 +13,14 @@ import TrainerProfileView from "@/views/TrainerProfileView.vue";
 import MarketplaceView from "@/views/MarketplaceView.vue";
 import ProductListingView from "@/views/ProductListingView.vue";
 import ProductDetailsView from "@/views/ProductDetailsView.vue";
+import EditProductView from "@/views/EditProductView.vue";
+import AddNewProductView from "@/views/AddNewProductView.vue";
+import ImporterProfileView from "@/views/ImporterProfileView.vue";
+import ImporterTransactionsView from "@/views/ImporterTransactionsView.vue";
+import SuppliersView from "@/views/SuppliersView.vue";
+import SupplierProfileView from "@/views/SupplierProfileView.vue";
+import TransactionHistoryView from "@/views/TransactionHistoryView.vue";
+import ProductSourcingView from "@/views/ProductSourcingView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -86,11 +94,52 @@ const router = createRouter({
     },
     {
       path: "/product/:id",
-      name: "ProductDetails",
+      name: "productdetails",
       component: ProductDetailsView,
       props: true,
     },
-  
+    {
+      path: "/edit-product",
+      name: "editproduct",
+      component: EditProductView
+    },
+    {
+      path: "/add-new-product",
+      name: "addnewproduct",
+      component: AddNewProductView
+    },
+    {
+      path: '/importer-profile/:moduleId', 
+      name: 'importerprofile',
+      component: ImporterProfileView,
+      props: true, 
+    },
+    {
+      path: "/importer-transactions",
+      name: "importertransactions",
+      component: ImporterTransactionsView
+    },
+    {
+      path: "/suppliers",
+      name: "suppliers",
+      component: SuppliersView
+    },
+    {
+      path: '/supplier/:id',
+      name: 'SupplierProfile',
+      component: SupplierProfileView, 
+      props: true,
+    },
+    {
+      path: "/transaction-history",
+      name: "transactionhistory",
+      component: TransactionHistoryView
+    },
+    {
+      path: "/product-sourcing",
+      name: "productsourcing",
+      component: ProductSourcingView
+    },
   ],
 });
 

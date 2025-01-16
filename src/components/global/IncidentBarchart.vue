@@ -2,7 +2,7 @@
   <div id="chart">
     <VueApexCharts
       type="bar"
-      :width="'1080px'"
+      :width="chartWidth"
       :height="chartHeight"
       :options="chartOptions"
       :series="series"
@@ -29,6 +29,10 @@ const chartHeight = computed(() => {
   const categoriesCount = 5; 
   const barHeight = 80; 
   return categoriesCount * barHeight;
+});
+
+const chartWidth = computed(() => {
+  return window.innerWidth < 600 ? '100%' : '1080px';
 });
 </script>
 

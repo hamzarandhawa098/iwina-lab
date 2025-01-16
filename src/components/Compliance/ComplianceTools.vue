@@ -1,14 +1,20 @@
 <template>
   <div class="px-6 py-5 border border-border-color rounded-lg shadow mt-6">
-    <h1 class="font-inter font-semibold text-[30px] leading-[38px] text-title-color">Compliance Tools</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-6">
-      <ComplianceToolCard
-        v-for="(tool, index) in tools"
-        :key="index"
-        :title="tool.title"
-        :description="tool.description"
-        :logo="tool.logo"
-      />
+    <h1
+      class="font-inter font-semibold text-center lg:text-left text-[30px] leading-[38px] text-title-color"
+    >
+      Compliance Tools
+    </h1>
+    <div class="flex justify-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ComplianceToolCard
+          v-for="(tool, index) in tools"
+          :key="index"
+          :title="tool.title"
+          :description="tool.description"
+          :logo="tool.logo"
+        />
+      </div>
     </div>
   </div>
 </template>

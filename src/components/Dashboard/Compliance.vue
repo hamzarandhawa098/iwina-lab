@@ -1,11 +1,10 @@
 <template>
-  <div class="p-6 bg-white border border-border-color shadow rounded-[12px]">
-    <div class="flex justify-between items-center mb-4">
-      <h1 class="text-[20px] font-nunito font-bold leading-7 text-title-color">
+  <div class="lg:p-6 p-2 bg-white border border-border-color shadow rounded-[12px]">
+    <div class="flex flex-col lg:flex-row justify-between items-center mb-4">
+      <h1 class="text-[20px]  font-nunito font-bold leading-7 text-title-color">
         Compliance
       </h1>
       <div class="flex space-x-4">
-        <!-- Status Selector -->
         <div class="relative">
           <select
             class="w-[81px] px-3 py-3 border border-table-border rounded-[4px] font-nunito font-normal text-[12px] leading-[18px] text-Selector-Text"
@@ -17,7 +16,6 @@
           </select>
         </div>
 
-        <!-- Sort Selector -->
         <div class="relative">
           <select
             class="w-[86px] px-3 py-3 border border-table-border rounded-[4px] font-nunito font-normal text-[12px] leading-[18px] text-Selector-Text"
@@ -28,8 +26,7 @@
           </select>
         </div>
 
-        <!-- Search Input -->
-        <div class="relative w-[173px]">
+        <div class="relative w-full lg:w-[173px]">
           <span class="absolute inset-y-0 left-0 flex items-center pl-3">
             <SearchIcon />
           </span>
@@ -41,64 +38,65 @@
         </div>
       </div>
     </div>
+    <div class="table-container ">
+      <Table class="mt-6 w-[350px] md:w-[681px]">
+        <template #header>
+          <th class="checkbox-cell">
+            <input type="checkbox" />
+          </th>
+          <th
+            class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
+          >
+            ID
+          </th>
+          <th
+            class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
+          >
+            Product
+          </th>
+          <th
+            class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
+          >
+            Created Date
+          </th>
+          <th
+            class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
+          >
+            Status
+          </th>
+          <th
+            class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
+          >
+            Action
+          </th>
+        </template>
 
-    <Table class="mt-6 w-[681px]">
-      <template #header>
-        <th class="checkbox-cell">
-          <input type="checkbox" />
-        </th>
-        <th
-          class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
-        >
-          ID
-        </th>
-        <th
-          class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
-        >
-          Product
-        </th>
-        <th
-          class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
-        >
-          Created Date
-        </th>
-        <th
-          class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
-        >
-          Status
-        </th>
-        <th
-          class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
-        >
-          Action
-        </th>
-      </template>
-
-      <template #rows>
-        <tr v-for="(row, index) in tableData" :key="index">
-          <td class="checkbox-cell">
-            <input type="checkbox" :value="row" />
-          </td>
-          <td>{{ row.id }}</td>
-          <td>{{ row.product }}</td>
-          <td>{{ row.createdDate }}</td>
-          <td>
-            <CustomButton :color-classes="statusColors[row.status]">
-              {{ row.status }}
-            </CustomButton>
-          </td>
-          <td>
-            <CustomButton
-              :color-classes="'bg-Action-bg text-Action-Text'"
-              :base-classes="'px-[32px] py-2 rounded-[8px]'"
-            >
-              Open
-            </CustomButton>
-          </td>
-        </tr>
-      </template>
-    </Table>
-  </div>
+        <template #rows>
+          <tr v-for="(row, index) in tableData" :key="index">
+            <td class="checkbox-cell">
+              <input type="checkbox" :value="row" />
+            </td>
+            <td>{{ row.id }}</td>
+            <td>{{ row.product }}</td>
+            <td>{{ row.createdDate }}</td>
+            <td>
+              <CustomButton :color-classes="statusColors[row.status]">
+                {{ row.status }}
+              </CustomButton>
+            </td>
+            <td>
+              <CustomButton
+                :color-classes="'bg-Action-bg text-Action-Text'"
+                :base-classes="'px-[32px] py-2 rounded-[8px]'"
+              >
+                Open
+              </CustomButton>
+            </td>
+          </tr>
+        </template>
+      </Table>
+    </div>
+    </div>
 </template>
 
 <script setup>
@@ -133,3 +131,8 @@ const statusColors = {
   "Under Process": "bg-underProcess-Table text-underProcess-Text",
 };
 </script>
+<style scoped>
+th:nth-child(6) {
+  text-align: center;
+}
+</style>

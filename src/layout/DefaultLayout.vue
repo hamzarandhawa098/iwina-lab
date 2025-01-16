@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <Sidebar
-      class="fixed pb-[64px]"
+      class="fixed pb-[32px]" style="z-index: 999;"
       :Logo="Logo"
       :Avatar="Avatar"
       :SearchIcon="SearchIcon"
@@ -11,7 +11,7 @@
       :profileName="profileName"
       :profileMail="profileMail"
     />
-    <div class="ml-[272px] px-8 pb-12 mt-12">
+    <div class="lg:ml-[272px]  mx-auto md:px-8 pb-12 mt-12">
       <router-view></router-view>
     </div>
   </div>

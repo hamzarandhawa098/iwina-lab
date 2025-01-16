@@ -1,9 +1,11 @@
 <template>
-  <div class="bg-white border  border-border-color rounded-lg px-6 py-6 shadow w-full">
+  <div
+    class="bg-white border border-border-color rounded-lg px-6 py-6 shadow w-full"
+  >
     <h2
       class="text-[20px] font-bold text-title-color font-nunito leading-[28px] tracking-[-2%]"
     >
-    {{ TrainigModulesTitle }}
+      {{ TrainigModulesTitle }}
     </h2>
     <div class="mt-5">
       <div v-for="module in TrainigModulesData" :key="module.id" class="">
@@ -15,18 +17,28 @@
           />
           <div class="py-4">
             <h3
-              :class="['font-inter text-[14px] leading-5 text-title-color',
-                isDashboard ? 'text-title-color font-medium ' : 'text-black font-normal'
+              :class="[
+                'font-inter text-[14px] leading-5 text-title-color',
+                isDashboard
+                  ? 'text-title-color font-medium '
+                  : 'text-black font-normal',
               ]"
             >
               {{ module.title }}
             </h3>
+            <p v-if="isMarketplace" class="leading-5">
+              <router-link
+                :to="`/importer-profile/${module.id}`"
+                class="font-nunito text-[10px] text-primary-color font-bold"
+              >
+                {{ module.lessons }}
+              </router-link>
+            </p>
             <p
-              :class="[' leading-5',
-              isDashboard ? 'text-paragraph-color font-inter font-normal text-[14px]' : 'font-nunito text-[10px] text-primary-color font-bold'
-              ]"
+              v-else
+              class="leading-5 text-paragraph-color font-inter font-normal text-[14px]"
             >
-              {{ module.lessons }} 
+              {{ module.lessons }}
             </p>
           </div>
         </div>
@@ -36,25 +48,25 @@
       <button
         class="text-training-button font-nunito tracking-[-0.05px] font-bold leading-5"
       >
-      {{ TrainigModulesButtonText }}
+        {{ TrainigModulesButtonText }}
       </button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { computed } from "vue";
+import { useRoute, RouterLink } from "vue-router";
 
 const route = useRoute();
-const isDashboard = computed(() => route.path ==='/dashboard')
+const isDashboard = computed(() => route.path === "/dashboard");
+const isMarketplace = computed(() => route.path === "/marketplace");
 
 defineProps({
-    TrainigModulesData : String,
-    TrainigModulesTitle : String,
-    TrainigModulesButtonText: String,
-    
-})
+  TrainigModulesData: Array,
+  TrainigModulesTitle: String,
+  TrainigModulesButtonText: String,
+});
 </script>
 
 <style scoped></style>

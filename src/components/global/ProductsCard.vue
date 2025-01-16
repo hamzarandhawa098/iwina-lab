@@ -1,9 +1,11 @@
 <template>
   <router-link
     :to="`/product/${product.id}`"
-    class="bg-white border border-border-color p-[14.83px] w-[248px] h-[334px] rounded-lg shadow overflow-hidden"
+    :class="['bg-white border border-border-color   rounded-lg shadow overflow-hidden',
+  isProductList ? 'p-[14.83px] w-[248px] h-[334px]' : 'p-[13.80px] w-[231px] h-[310px]'
+  ]"
   >
-    <div class="w-[219px] h-[185px]">
+    <div :class="[isProductList ? 'w-[219px] h-[185px]' : 'w-[204px] h-[171px]']">
       <img
         :src="product.image"
         alt="Product Image"
@@ -11,9 +13,11 @@
       />
     </div>
 
-    <div class="mt-[11.48px]">
+    <div :class="[isProductList ? 'mt-[11.48px]' : 'mt-[10.68px]']">
       <h2
-        class="font-nunito font-semibold text-[12.9px] leading-[17.8px] text-compliance-card-title"
+        :class="['font-nunito font-semibold text-[12.9px] leading-[17.8px] text-compliance-card-title',
+        isProductList ? 'text-[12.9px] leading-[17.8px]' : 'text-[12px] leading-[16.55px]'
+        ]"
       >
         {{ product.name }}
       </h2>
@@ -25,7 +29,7 @@
       <div class="flex items-center justify-between mt-[11.86px]">
         <span
           class="font-nunito font-semibold text-[12.9px] leading-[17.6px] text-product-price"
-          >{{ product.price }}</span
+          >${{ product.price }}</span
         >
         <div class="flex items-center space-x-1">
           <ProductRatingStarIcon />
@@ -41,6 +45,12 @@
 
 <script setup>
 import ProductRatingStarIcon from "@/components/icons/ProductRatingStarIcon.vue";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const isProductList = computed(() => route.path === '/product-list')
+
 defineProps({
   product: {
     type: Object,

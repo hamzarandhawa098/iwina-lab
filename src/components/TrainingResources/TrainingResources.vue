@@ -1,12 +1,12 @@
 <template>
   <div class="px-6 py-5 border border-border-color shadow rounded-lg">
     <div>
-      <h1 class="font-nunito font-bold text-[20px] leading-[28px] text-title-color">
+      <h1 class="font-nunito font-bold text-[20px] text-center lg:text-left leading-[28px] text-title-color">
         {{ TrainingResourcesTitle }}
       </h1>
     </div>
 
-    <div class="flex mt-[22px] space-x-4">
+    <div class="flex mt-[22px] space-x-4 justify-center lg:justify-normal">
       <button
         @click="setActiveSection('learning')"
         :class="{
@@ -33,13 +33,13 @@
     </div>
 
     <section v-if="activeSection === 'learning'" id="learning">
-      <div class="flex justify-end space-x-3 mt-[22px]">
-        <router-link to="/trainig-resources/create-module">
+      <div class="flex flex-col lg:flex-row justify-end gap-3 mt-[22px]">
+        <router-link to="/trainig-resources/create-module" class="w-full lg:w-auto">
           <Button
             text="Create New Module"
             backgroundColor="bg-notification-color"
             textColor="text-white"
-            custom-classes="px-4 py-3 text-[18px] leading-[24px]"
+            custom-classes="px-4 py-3 text-[18px] leading-[24px] w-full lg:w-auto"
           />
         </router-link>
         <Button
@@ -74,16 +74,16 @@
 
     <section v-if="activeSection === 'trainers'" id="trainers">
       <div class="flex justify-end space-x-3 mt-[22px]">
-      <router-link to="/add-new-trainer">
+      <router-link to="/add-new-trainer" class="w-full lg:w-auto">
         <Button
           text="Add Trainer"
           backgroundColor="bg-notification-color"
           textColor="text-white"
-          custom-classes="px-4 py-3 text-[18px] leading-[24px]"
+          custom-classes="px-4 py-3 text-[18px] leading-[24px] w-full lg:w-auto"
         />
       </router-link>
       </div>
-      <TrainerTable 
+      <TrainerTable class="lg:w-[1103px] w-[350px]"
       :TrainerImg="TarinerImg"
       :EditIcon="EditIcon"
       :DelIcon="DelIcon"

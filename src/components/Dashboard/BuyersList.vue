@@ -1,9 +1,9 @@
 <template>
-  <div class="p-6 mt-6 bg-white border border-border-color rounded-lg shadow">
-    <h1 class="text-[20px] font-nunito font-bold leading-7 text-title-color">
+  <div class="lg:p-6 mt-6 bg-white border border-border-color rounded-lg shadow">
+    <h1 class="text-[20px] text-center font-nunito font-bold leading-7 text-title-color">
       Buyers List
     </h1>
-    <div class="flex items-center justify-between mb-4 mt-6">
+    <div class="flex items-center justify-center lg:justify-between mb-4 mt-6">
       <div class="flex space-x-2">
         <div class="relative">
           <select
@@ -25,7 +25,7 @@
           </select>
         </div>
       </div>
-      <div class="relative w-[173px]">
+      <div class="relative w-[173px] ">
         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
           <SearchIcon />
         </span>
@@ -36,8 +36,8 @@
         />
       </div>
     </div>
-
-    <Table class="mt-6">
+<div class="table-container">
+    <Table class="mt-6 w-[350px] lg:w-[100%]">
       <template #header>
         <th class="checkbox-cell">
           <input type="checkbox" />
@@ -79,8 +79,8 @@
         </tr>
       </template>
     </Table>
-
-    <div class="flex items-center justify-between mt-6">
+  </div>
+    <div class="lg:flex items-center justify-between mt-6 hidden">
       <div class="flex space-x-2">
         <ArrowLeft />
         <button
@@ -135,3 +135,10 @@ const tableData = [
   { id: 9359, product: "Palm kernel", companyName: "VG - Van Group", email: "manhhachkt08@gmail.com" }
 ];
 </script>
+
+<style scoped>
+th:nth-child(6){
+  text-align: right;
+  padding-right: 47px;
+}
+</style>

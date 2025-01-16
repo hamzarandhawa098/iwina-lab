@@ -1,5 +1,6 @@
 <template>
-  <div class="overflow-x-auto border border-table-border px-6 py-3">
+  <div class="border border-table-border px-6 py-3">
+    <div class="table-container">
     <table class="border-collapse w-full bg-white text-left">
       <thead>
         <tr>
@@ -10,6 +11,7 @@
         <slot name="rows"></slot>
       </tbody>
     </table>
+  </div>
   </div>
 </template>
 

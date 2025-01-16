@@ -1,10 +1,10 @@
 <template>
-  <PageTitle title="Marketplace" />
-  <Scores :scroesData="scroesData" />
-  <div class="flex mt-6 space-x-6">
-    <Products class="w-[729px]" 
-    title="Products"
-    />
+  <PageTitle title="Marketplace" class="mt-10 lg:mt-0" />
+  <div class="grid grid-cols-2 mt-[24px] xl:grid-cols-4 lg:gap-6 gap-4">
+    <Scores v-for="(score, index) in scroesData" :key="index" :score="score" />
+  </div>
+  <div class="flex flex-col lg:flex-row mt-6 gap-6">
+    <Products class="lg:w-[729px]" title="Products" />
     <TrainingModule
       class="w-[351px]"
       TrainigModulesTitle="Importers"
@@ -17,21 +17,25 @@
     :incidentData="incidentData"
     :incidentChartOptions="incidentChartOptions"
   />
-  <div class="flex mt-6 space-x-6">
-  <ComplianceOverview class=""
-      ComplianceOverviewTitle="Suppliers <span class='font-normal text-[16px] text-light-color'>(116)</span>" 
+  <div class="flex flex-col lg:flex-row mt-6 gap-6">
+    <ComplianceOverview
+      ComplianceOverviewTitle="Suppliers <span class='font-normal text-[16px] text-light-color'>(116)</span>"
       :chartData="chartData"
-      :createChart="createChart"  
-      :updateChart="updateChart"  
-      :chartInstance="chartInstance" 
+      :createChart="createChart"
+      :updateChart="updateChart"
+      :chartInstance="chartInstance"
       :chartLegends="chartLegends"
     />
-    <Transactions />
+    <Transactions 
+    title="Transactions"
+    />
   </div>
-<ProductSourcing class="mt-6"/>
+  <ProductSourcing class="mt-6" 
+  title="Product Sourcing"
+  />
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, watch } from "vue";
 import PageTitle from "@/components/global/PageTitle.vue";
 import Scores from "@/components/Dashboard/Scores.vue";
 import DollarIcon from "@/components/icons/DollarIcon.vue";
@@ -42,33 +46,34 @@ import IncidentGraph from "@/components/Dashboard/IncidentGraph.vue";
 import ComplianceOverview from "@/components/Dashboard/ComplianceOverview.vue";
 import Transactions from "@/components/Marketplace/Transactions.vue";
 import ProductSourcing from "@/components/Marketplace/ProductSourcing.vue";
-import { Chart } from "chart.js";  
-
+import { Chart } from "chart.js";
 
 const chartData = ref({
   Cisco: 25,
   BBH: 30,
   PwC: 25,
-  ALM: 20
+  ALM: 20,
 });
 const chartLegends = ref([
   { label: "Cisco", color: "#03D18F" },
   { label: "BBH", color: "#4F81F5" },
   { label: "PwC", color: "#FF9F24" },
   { label: "ALM", color: "#7200CC" },
-
 ]);
 
 const chartInstance = ref(null);
 
 function createChart(ctx) {
-  const total = chartData.value.Cisco + chartData.value.BBH + chartData.value.PwC + chartData.value.ALM;
+  const total =
+    chartData.value.Cisco +
+    chartData.value.BBH +
+    chartData.value.PwC +
+    chartData.value.ALM;
   const dataValues = [
     (chartData.value.Cisco / total) * 100,
     (chartData.value.BBH / total) * 100,
     (chartData.value.PwC / total) * 100,
     (chartData.value.ALM / total) * 100,
-
   ];
 
   chartInstance.value = new Chart(ctx, {
@@ -78,7 +83,7 @@ function createChart(ctx) {
       datasets: [
         {
           data: dataValues,
-          backgroundColor: ["#03D18F", "#FF9F24", "#4F81F5","#7200CC"],
+          backgroundColor: ["#03D18F", "#FF9F24", "#4F81F5", "#7200CC"],
           borderWidth: 0,
         },
       ],
@@ -102,17 +107,20 @@ function createChart(ctx) {
 
 function updateChart() {
   if (chartInstance.value) {
-    const total = chartData.value.Cisco + chartData.value.BBH + chartData.value.PwC + chartData.value.ALM;
+    const total =
+      chartData.value.Cisco +
+      chartData.value.BBH +
+      chartData.value.PwC +
+      chartData.value.ALM;
     chartInstance.value.data.datasets[0].data = [
-    (chartData.value.Cisco / total) * 100,
-    (chartData.value.BBH / total) * 100,
-    (chartData.value.PwC / total) * 100,
-    (chartData.value.ALM / total) * 100,
+      (chartData.value.Cisco / total) * 100,
+      (chartData.value.BBH / total) * 100,
+      (chartData.value.PwC / total) * 100,
+      (chartData.value.ALM / total) * 100,
     ];
     chartInstance.value.update();
   }
 }
-
 
 const scroesData = ref([
   { label: "Total Transactions", value: "280", icon: DollarIcon },
@@ -185,7 +193,6 @@ const incidentData = ref({
     { name: "November", data: [2, 6, 5, 7, 2] },
     { name: "December", data: [1, 5, 4, 6, 3] },
   ],
-
 });
 
 const incidentChartOptions = ref({
@@ -235,5 +242,26 @@ const incidentChartOptions = ref({
   },
   dataLabels: { enabled: false },
   tooltip: { shared: true, intersect: false },
+});
+
+const screenWidth = ref(window.innerWidth);
+
+const updateLegendPosition = () => {
+  if (screenWidth.value < 768) {
+    incidentChartOptions.value.legend.position = "bottom";
+    incidentChartOptions.value.legend.horizontalAlign = "center";
+  } else {
+    incidentChartOptions.value.legend.position = "right";
+    incidentChartOptions.value.legend.horizontalAlign = "center";
+  }
+};
+
+watch(screenWidth, updateLegendPosition);
+
+onMounted(() => {
+  window.addEventListener("resize", () => {
+    screenWidth.value = window.innerWidth;
+  });
+  updateLegendPosition();
 });
 </script>

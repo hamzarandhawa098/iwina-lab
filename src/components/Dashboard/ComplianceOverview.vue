@@ -1,12 +1,13 @@
 <template>
   <div
-    class="max-w-[351px] w-full bg-white border py-6 border-border-color shadow rounded-[12px]"
+    class="xl:w-[351px] w-full bg-white border py-6 border-border-color shadow rounded-[12px]"
   >
     <div class="flex justify-between items-center px-6">
       <h2
         class="text-[20px] font-nunito font-bold leading-7 text-title-color"
         v-html="ComplianceOverviewTitle"
       ></h2>
+      <router-link to="/suppliers">
       <Button
         v-if="!isDashboard"
         text="View All"
@@ -14,8 +15,9 @@
         textColor="text-bold-color"
         custom-classes="px-4 py-3"
       />
+    </router-link>
     </div>
-    <div class="flex justify-center items-center mt-6">
+    <div class="flex justify-center px-6 items-center mt-6">
       <RadialChart
         :data="chartData"
         :createChart="createChart"

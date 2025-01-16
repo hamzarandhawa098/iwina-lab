@@ -9,7 +9,8 @@ export default {
         inter: "Inter",
         gilroyBold : ['Gilroy-Bold', 'sans-serif'],
         gilroyLight: ['Gilroy-Light', 'sans-serif'],
-        gilroyRegular: ['Gilroy-Regular', 'sans-serif']
+        gilroyRegular: ['Gilroy-Regular', 'sans-serif'],
+        openSans : 'Open Sans'
 
       },
       colors: {
@@ -59,7 +60,11 @@ export default {
         "Table-header" : "#707070",
         "trainer-profile-title" : "#1D2026",
         "trainer-profile-subtitle" : "#6E7485",
-        "product-price" : "#42B42F"
+        "product-price" : "#42B42F",
+        "product-Details-rating" : "#525252",
+        "features-text-title" : "#303133",
+        "Instock-text" : "#34C759",
+        "Available-stock-bg" : "#E6F0F6"
         
       },
       fontWeight: {

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white border mt-6 w-[1104px] border-border-color p-4 rounded-lg shadow-sm">
+  <div class="bg-white border mt-6 w-full lg:w-[1104px] border-border-color p-4 rounded-lg shadow-sm">
     <div
       v-for="notification in notifications"
       :key="notification.id"

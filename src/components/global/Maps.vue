@@ -1,6 +1,6 @@
 <template>
-    <div class="p-6 bg-white flex items-start space-x-16">
-      <div class="relative w-2/3">
+    <div class="p-6 bg-white flex flex-col lg:flex-row items-start lg:space-x-16">
+      <div class="relative lg:w-2/3">
         <img 
           :src="Map" 
           alt="World Map" 
@@ -25,9 +25,9 @@
         </div>
       </div>
   
-      <div class="w-1/3">
+      <div class="lg:w-1/3 w-full">
         <h2 class="font-inter" v-html="tableTitle"></h2>
-        <ul class="mt-4 space-y-6">
+        <ul class="grid grid-cols-2 lg:grid-cols-1 gap-4   mt-4 lg:space-y-6">
           <li v-for="(detail, index) in details" :key="index" class="flex items-center space-x-4">
           <component :is="detail.flag" />
             <div>

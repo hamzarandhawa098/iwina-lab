@@ -1,5 +1,5 @@
 <template>
-    <PageTitle title="Notifications" subtitle="You can see notifications about the system here" />
+    <PageTitle title="Notifications" subtitle="You can see notifications about the system here"  class="mt-10 lg:mt-0"/>
     <Notifications 
     :NotificationPageIcon="NotificationPageIcon"
     :notifications="notifications"

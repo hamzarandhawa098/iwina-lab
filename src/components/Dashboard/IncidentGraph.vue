@@ -1,5 +1,6 @@
 <template>
-  <div class="bg-white border mt-6 border-border-color shadow rounded-[12px]">
+  <div class="bg-white border mt-6 border-border-color shadow rounded-[12px]"
+  style="z-index: -10;">
     <div
       class="flex flex-col lg:flex-row justify-between items-center px-5 pt-[27px] max-w-[840px] w-full"
     >
@@ -44,7 +45,8 @@
       </div>
     </div>
     <div>
-      <IncidentBarchart :series="series" :chartOptions="chartOptions" />
+      <IncidentBarchart :series="series" :chartOptions="chartOptions" 
+      />
     </div>
   </div>
 </template>

@@ -1,74 +1,80 @@
 <template>
-  <div class="p-6 bg-white border border-border-color rounded-lg shadow">
+  <div class="lg:p-6 px-1 py-2 lg:py-0 bg-white border border-border-color rounded-lg shadow">
     <div class="flex items-center justify-between">
       <h1 class="text-[20px] font-nunito font-bold leading-7 text-title-color">
-        Transactions
+        {{ title }}
       </h1>
-      <Button
-        text="View All Transactions"
-        backgroundColor="bg-primary-color"
-        textColor="text-bold-color"
-        custom-classes="px-4 py-3"
-      />
+      <router-link to="/transaction-history">
+        <Button
+          text="View All Transactions"
+          backgroundColor="bg-primary-color"
+          textColor="text-bold-color"
+          custom-classes="px-4 py-3"
+        />
+      </router-link>
     </div>
-    <Table class="w-[681px] mt-[18px]">
-      <template #header>
-        <th class="checkbox-cell">
-          <input type="checkbox" />
-        </th>
-        <th
-          v-for="(header, index) in tableHeaders"
-          :key="index"
-          class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
-        >
-          {{ header }}
-        </th>
-      </template>
+    <div class="table-container">
+      <Table class="w-[350px] lg:w-[681px] mt-[18px]">
+        <template #header>
+          <th class="checkbox-cell">
+            <input type="checkbox" />
+          </th>
+          <th
+            v-for="(header, index) in tableHeaders"
+            :key="index"
+            class="font-nunito font-mediumBold text-[14px] leading-[20px] tracking-[-0.05px] text-paragraph-color"
+          >
+            {{ header }}
+          </th>
+        </template>
 
-      <template #rows>
-        <tr v-for="(row, index) in tableData" :key="index">
-          <td class="checkbox-cell">
-            <input type="checkbox" :value="row" />
-          </td>
-          <td class="text-table-content">{{ row.id }}</td>
-          <td>
-            <span class="text-table-content">{{ row.Date }}</span>
-          </td>
-          <td class="text-table-content flex justify-center">{{ row.price }}</td>
-          <td>
-            <div>
-              <span class="text-table-content">{{ row.buyer }}</span>
-            </div>
-          </td>
-          <td>
-            <span
-              :class="{
-                'text-green-500': row.gross.startsWith('+'),
-                'text-red-500': row.gross.startsWith('-'),
-              }"
-            >
-              {{ row.gross }}
-            </span>
-          </td>
-          <td>
-            <div class="flex space-x-3">
-              <ViewIcon
-                class="w-5 h-5 cursor-pointer text-green-500"
-                @click="onView(row)"
-              />
-              <DeleteIcon
-                class="w-5 h-5 cursor-pointer text-red-500"
-                @click="onDelete(row)"
-              />
-              <EditIcon
-                class="w-5 h-5 cursor-pointer text-blue-500"
-                @click="onEdit(row)"
-              />
-            </div>
-          </td>
-        </tr>
-      </template>
-    </Table>
+        <template #rows>
+          <tr v-for="(row, index) in tableData" :key="index">
+            <td class="checkbox-cell">
+              <input type="checkbox" :value="row" />
+            </td>
+            <td class="text-table-content">{{ row.id }}</td>
+            <td>
+              <span class="text-table-content">{{ row.Date }}</span>
+            </td>
+            <td class="text-table-content flex justify-center">
+              {{ row.price }}
+            </td>
+            <td>
+              <div>
+                <span class="text-table-content">{{ row.buyer }}</span>
+              </div>
+            </td>
+            <td>
+              <span
+                :class="{
+                  'text-green-500': row.gross.startsWith('+'),
+                  'text-red-500': row.gross.startsWith('-'),
+                }"
+              >
+                {{ row.gross }}
+              </span>
+            </td>
+            <td>
+              <div class="flex space-x-3">
+                <ViewIcon
+                  class="w-5 h-5 cursor-pointer text-green-500"
+                  @click="onView(row)"
+                />
+                <DeleteIcon
+                  class="w-5 h-5 cursor-pointer text-red-500"
+                  @click="onDelete(row)"
+                />
+                <EditIcon
+                  class="w-5 h-5 cursor-pointer text-blue-500"
+                  @click="onEdit(row)"
+                />
+              </div>
+            </td>
+          </tr>
+        </template>
+      </Table>
+    </div>
   </div>
 </template>
 
@@ -79,8 +85,18 @@ import { ref } from "vue";
 import EditIcon from "@/components/icons/EditMarketplaceIcon.vue";
 import DeleteIcon from "@/components/icons/DeleteMarketplaceIcon.vue";
 import ViewIcon from "@/components/icons/ViewIcon.vue";
+defineProps({
+  title: String,
+});
 
-const tableHeaders = ref(["ID", "Date", "Transaction", "Buyer", "Gross", "Action"]);
+const tableHeaders = ref([
+  "ID",
+  "Date",
+  "Transaction",
+  "Buyer",
+  "Gross",
+  "Action",
+]);
 
 const tableData = ref([
   {

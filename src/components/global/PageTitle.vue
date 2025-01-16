@@ -1,5 +1,5 @@
 <template>
-  <div class="font-inter">
+  <div class="font-inter text-center lg:text-left">
     <h1 class="text-[30px] font-semibold leading-[38px] text-title-color">
         {{ title }}
     </h1>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-defineProps({
+defineProps({ 
     title: String,
     subtitle: String,
 })

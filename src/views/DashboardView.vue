@@ -1,24 +1,36 @@
 <template>
-  <PageTitle title="Dashboard" subtitle="Welcome, Arslan Zubair!" />
-  <Scores :scroesData="scroesData" />
-  <div class="flex justify-between mt-6 space-x-6">
-    <OrdersCompleted :OrderCompletedTitle="'Orders Completed'" />
+  <PageTitle
+    title="Dashboard"
+    subtitle="Welcome, Arslan Zubair!"
+    class="mt-6 lg:mt-0"
+  />
+  <div class="grid grid-cols-2 mt-[24px] xl:grid-cols-4 lg:gap-6 gap-4">
+    <Scores v-for="(score, index) in scroesData" :key="index" :score="score" />
+  </div>
+  <div class="flex flex-col xl:flex-row justify-between mt-6 gap-6">
+    <OrdersCompleted
+      :OrderCompletedTitle="'Orders Completed'"
+      style="z-index: -10"
+    />
     <TrainingModule
       TrainigModulesTitle="Upcoming Training Module"
       :TrainigModulesData="TrainigModulesData"
       TrainigModulesButtonText="Show More"
     />
   </div>
-  <div class="flex mt-6 space-x-6">
+  <div class="flex flex-col lg:flex-row mt-6 gap-6">
     <ComplianceOverview
-      ComplianceOverviewTitle="Compliance Overview" 
+      style="z-index: -1000"
+      ComplianceOverviewTitle="Compliance Overview"
       :chartData="chartData"
-      :createChart="createChart"  
-      :updateChart="updateChart"  
+      :createChart="createChart"
+      :updateChart="updateChart"
       :chartInstance="chartInstance"
-      :chartLegends="chartLegends" 
+      :chartLegends="chartLegends"
     />
-    <Compliance />
+    <Compliance 
+    style="z-index: -1000;"
+    />
   </div>
   <IncidentGraph
     IncidentGraphTitle="Top 5 Incidents By Product Group"
@@ -30,7 +42,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch, onMounted } from "vue";
 import PageTitle from "@/components/global/PageTitle.vue";
 import Scores from "@/components/Dashboard/Scores.vue";
 import DollarIcon from "@/components/icons/DollarIcon.vue";
@@ -44,8 +56,7 @@ import Compliance from "@/components/Dashboard/Compliance.vue";
 import IncidentGraph from "@/components/Dashboard/IncidentGraph.vue";
 import BuyersList from "@/components/Dashboard/BuyersList.vue";
 import BuyersMap from "@/components/Dashboard/BuyersMap.vue";
-import { Chart } from "chart.js";  
-
+import { Chart } from "chart.js";
 
 const scroesData = ref([
   { label: "Compliance Score", value: "89.5", icon: DollarIcon },
@@ -66,11 +77,13 @@ const chartLegends = ref([
   { label: "Pending", color: "#FF9F24" },
 ]);
 
-
 const chartInstance = ref(null);
 
 function createChart(ctx) {
-  const total = chartData.value.completed + chartData.value.inProgress + chartData.value.pending;
+  const total =
+    chartData.value.completed +
+    chartData.value.inProgress +
+    chartData.value.pending;
   const dataValues = [
     (chartData.value.completed / total) * 100,
     (chartData.value.inProgress / total) * 100,
@@ -108,7 +121,10 @@ function createChart(ctx) {
 
 function updateChart() {
   if (chartInstance.value) {
-    const total = chartData.value.completed + chartData.value.inProgress + chartData.value.pending;
+    const total =
+      chartData.value.completed +
+      chartData.value.inProgress +
+      chartData.value.pending;
     chartInstance.value.data.datasets[0].data = [
       (chartData.value.completed / total) * 100,
       (chartData.value.inProgress / total) * 100,
@@ -209,5 +225,26 @@ const incidentChartOptions = ref({
   },
   dataLabels: { enabled: false },
   tooltip: { shared: true, intersect: false },
+});
+
+const screenWidth = ref(window.innerWidth);
+
+const updateLegendPosition = () => {
+  if (screenWidth.value < 768) {
+    incidentChartOptions.value.legend.position = "bottom";
+    incidentChartOptions.value.legend.horizontalAlign = "center";
+  } else {
+    incidentChartOptions.value.legend.position = "right";
+    incidentChartOptions.value.legend.horizontalAlign = "center";
+  }
+};
+
+watch(screenWidth, updateLegendPosition);
+
+onMounted(() => {
+  window.addEventListener("resize", () => {
+    screenWidth.value = window.innerWidth;
+  });
+  updateLegendPosition();
 });
 </script>

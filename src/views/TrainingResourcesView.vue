@@ -1,5 +1,5 @@
 <template>
-  <PageTitle title="Training Resources" subtitle="You can see training resources here" />
+  <PageTitle title="Training Resources" subtitle="You can see training resources here" class="mt-10 lg:mt-0"  />
   <TrainingResources class="mt-6"
   TrainingResourcesTitle="Training Materials"
   LearningButton="Learning Materials"
