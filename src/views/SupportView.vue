@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between items-start">
+  <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start">
     <PageTitle title="Support" subtitle="You can see Support tickets here" />
     <div>
       <router-link to="/support/create-ticket">

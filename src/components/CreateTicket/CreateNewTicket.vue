@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full mt-6 bg-white px-6 py-5 border border-border-color rounded-lg shadow"
+    class="w-full mt-6 text-center bg-white px-6 py-5 border border-border-color rounded-lg shadow"
   >
     <h2
       class="font-inter font-semibold text-[30px] leading-[38px] text-title-color"
@@ -15,19 +15,19 @@
 
     <form @submit.prevent="createTicket" class="mt-[22px]">
       <div class="h-[654px]">
-        <div class="flex space-x-8">
+        <div class="flex flex-col lg:flex-row gap-8">
           <input
             id="subject"
             v-model="form.subject"
             type="text"
-            class="w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+            class="lg:w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
             :placeholder="subjectPlaceholder"
           />
 
           <select
             id="type"
             v-model="form.type"
-            class="w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+            class="lg:w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
           >
             <option v-for="option in typeOptions" :key="option.value" :value="option.value">
               {{ option.label }}
@@ -40,7 +40,7 @@
             id="description"
             v-model="form.description"
             rows="6"
-            class="w-[1063px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+            class="lg:w-[1063px] w-full px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
             :placeholder="descriptionPlaceholder"
           ></textarea>
         </div>
@@ -66,7 +66,7 @@
         </div>
       </div>
 
-      <div class="flex justify-end space-x-4 mt-[22px]">
+      <div class="flex flex-col lg:flex-row justify-end space-x-4 mt-[22px]">
         <Button
           type="button"
           :text="cancelButtonText"

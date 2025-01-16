@@ -1,10 +1,10 @@
 <template>
-  <div class="w-[1104px]">
-    <div class="flex items-center justify-between mb-4">
-      <div class="flex space-x-2">
+  <div class="lg:w-[1104px] w-full">
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-2  lg:justify-between mb-4">
+      <div class="flex gap-2">
         <div class="relative">
           <select
-            class="w-[81px] px-3 py-3 border border-table-border radius-[4px] font-nunito font-normal text-[12px] leading-[18px] text-Selector-Text"
+            class="lg:w-[81px] w-full px-3 py-3 border border-table-border radius-[4px] font-nunito font-normal text-[12px] leading-[18px] text-Selector-Text"
           >
             <option value="">Status</option>
             <option value="Completed">Completed</option>
@@ -14,7 +14,7 @@
         </div>
         <div class="relative">
           <select
-            class="w-[86px] px-3 py-3 border border-table-border radius-[4px] font-nunito font-normal text-[12px] leading-[18px] text-Selector-Text"
+            class="lg:w-[86px] w-full px-3 py-3 border border-table-border radius-[4px] font-nunito font-normal text-[12px] leading-[18px] text-Selector-Text"
           >
             <option value="">Sort by</option>
             <option value="createdDate">Created Date</option>
@@ -22,7 +22,7 @@
           </select>
         </div>
       </div>
-      <div class="relative w-[361px]">
+      <div class="relative lg:w-[361px] w-full">
         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
           <SearchIcon />
         </span>
@@ -33,8 +33,8 @@
         />
       </div>
     </div>
-
-    <Table class="mt-6 bg-white border border-border-color rounded-lg shadow">
+<div class="table-container">
+    <Table class="mt-6 bg-white border border-border-color rounded-lg shadow w-[350px] lg:w-full">
       <template #header>
         <th>Ticket ID</th>
         <th>Username</th>
@@ -74,9 +74,10 @@
         </tr>
       </template>
     </Table>
+  </div>
 
     <div
-      class="flex items-center justify-between mt-6 bg-white border border-border-color rounded-lg shadow py-4 px-[14px]"
+      class="lg:flex hidden items-center justify-between mt-6 bg-white border border-border-color rounded-lg shadow py-4 px-[14px]"
     >
       <div class="flex space-x-2">
         <ArrowLeft />
