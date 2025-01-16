@@ -64,8 +64,8 @@ export default {
         "product-Details-rating" : "#525252",
         "features-text-title" : "#303133",
         "Instock-text" : "#34C759",
-        "Available-stock-bg" : "#E6F0F6"
-        
+        "Available-stock-bg" : "#E6F0F6",
+        "Popup-text" : "#588400",
       },
       fontWeight: {
         mediumBold: 475,

@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="flex items-center w-screen justify-between px-4 py-2 bg-white shadow-lg lg:hidden"
-    style="z-index: 1000"
     >
       <div class="flex items-center">
         <img :src="Logo" alt="Logo" class="w-[133px] h-8" />
