@@ -49,16 +49,16 @@
               id="subject"
               v-model="form.subject"
               type="text"
-              class="w-[1063px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+              class="lg:w-[1063px] w-full px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
               :placeholder="courseTitlePlaceholder"
             />
           </div>
   
-          <div class="flex space-x-8 mt-6">
+          <div class="flex flex-col lg:flex-row gap-8 mt-6">
             <select
               id="lessons"
               v-model="form.lessons"
-              class="w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+              class="lg:w-[515px] w-full px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
             >
               <option v-for="option in lessonOptions" :key="option.value" :value="option.value">
                 {{ option.label }}
@@ -68,7 +68,7 @@
             <select
               id="trainer"
               v-model="form.trainer"
-              class="w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+              class="lg:w-[515px] w-full px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
             >
               <option v-for="option in trainerOptions" :key="option.value" :value="option.value">
                 {{ option.label }}
@@ -81,13 +81,13 @@
               id="description"
               v-model="form.description"
               rows="6"
-              class="w-[1063px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+              class="lg:w-[1063px] w-full px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
               :placeholder="descriptionPlaceholder"
             ></textarea>
           </div>
         </div>
   
-        <div class="flex justify-end space-x-4 mt-[22px]">
+        <div class="flex flex-col lg:flex-row justify-end gap-4 mt-[22px]">
           <Button
             type="button"
             :text="cancelButtonText"

@@ -31,6 +31,8 @@ import AuditHistoryView from "@/views/AuditHistoryView.vue";
 import EntityDetailsView from "@/views/EntityDetailsView.vue";
 import ComplianceReportingView from "@/views/ComplianceReportingView.vue";
 import SettingsView from "@/views/SettingsView.vue";
+import RegulatorRegisterView from "@/views/RegulatorRegisterView.vue";
+import BuyerRegistrationView from "@/views/BuyerRegistrationView.vue";
 
 
 
@@ -40,6 +42,18 @@ const routes = [
     path: "/login",
     name: "login",
     component: LoginView,
+    meta: { layout: DefaultLayout },
+  },
+  {
+    path: "/regulator/register",
+    name: "regulatorsignup",
+    component: RegulatorRegisterView,
+    meta: { layout: DefaultLayout },
+  },
+  {
+    path: "/buyer/register",
+    name: "buyersignup",
+    component: BuyerRegistrationView,
     meta: { layout: DefaultLayout },
   },
   {
@@ -233,7 +247,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
 
-  if (to.path === '/login' || to.path === '/otp') {
+  if (to.path === '/login' || to.path === '/otp' || to.path === '/regulator/register' || to.path === '/buyer/register') {
     next();
   } else if (!authStore.token) {
     next('/login');
@@ -243,5 +257,6 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
+
 
 export default router;

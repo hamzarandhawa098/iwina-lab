@@ -28,7 +28,7 @@
                 class="w-10 h-10 rounded-full"
               />
               <router-link
-                :to="{ name: 'SupplierProfile', params: { id: index } }"
+                :to="{ name: 'supplierprofile', params: { id: index } }"
               >
                 {{ row.name }}
               </router-link>

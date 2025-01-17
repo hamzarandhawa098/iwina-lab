@@ -50,21 +50,21 @@
                 {{ option.label }}
               </option>
             </select>
-            <input
+            <GenericInput
               id="subject"
               v-model="form.subject"
               type="text"
-              class="w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+              customClasses="lg:w-[515px] px-3 py-[10px]"
               :placeholder="courseTitlePlaceholder"
             />
           </div>
 
           <div class="flex space-x-8 mt-6">
-            <input
+            <GenericInput
               id="subject"
               v-model="form.subject"
               type="text"
-              class="w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+              customClasses="lg:w-[515px] px-3 py-[10px]"
               :placeholder="price"
             />
 
@@ -120,6 +120,7 @@
 import { ref } from "vue";
 import AddProductIcon from "@/components/icons/AddProductIcon.vue";
 import Button from "@/components/global/Button.vue";
+import GenericInput from "@/components/global/GenericInput.vue";
 
 const props = defineProps({
   formTitle: {
@@ -160,11 +161,9 @@ const props = defineProps({
   },
   photos: {
     type: Array,
-    required: true
-  }
-
+    required: true,
+  },
 });
-
 
 const addPhoto = () => {};
 

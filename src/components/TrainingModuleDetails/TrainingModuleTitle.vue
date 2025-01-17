@@ -1,7 +1,7 @@
 <template>
-  <div class="flex items-center space-x-4">
+  <div class="flex justify-center lg:justify-start items-center space-x-4">
     <div>
-      <h2 class="font-inter text-[24px] leading-[29.05px] font-semibold">
+      <h2 class="font-inter text-center lg:text-left text-[24px] leading-[29.05px] font-semibold">
         {{ ModuleTitle }}
       </h2>
       <div class="flex items-center space-x-4 mt-[21px]">

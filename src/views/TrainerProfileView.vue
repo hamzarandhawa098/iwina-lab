@@ -1,6 +1,6 @@
 <template>
   <PageHeader linkText="Trainers" currentPageText="Trainer Detail" slash="/" />
-  <div class="flex justify-between items-start mt-8">
+  <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
     <PageTitle title="Training Module Detail" />
     <div>
       <router-link to="#">
@@ -14,7 +14,7 @@
     </div>
   </div>
   <div
-    class="w-[1103px] bg-white border border-border-color rounded-lg shadow mt-6 p-5"
+    class="lg:w-[1103px] w-full bg-white border border-border-color rounded-lg shadow mt-6 p-5"
   >
     <TrainerProfile
       instructorName="Mr. David"
@@ -22,7 +22,7 @@
       :image="InstructoreImg"
       :stats="stats"
     />
-  <div class="flex space-x-6">
+  <div class="flex flex-col lg:flex-row gap-6">
     <TrainerDescription class="mt-[22px]" title="About Me" 
     description="One day Vako had enough with the 9-to-5 grind, or more like 9-to-9 in his
       case, and quit his job, or more like got himself fired from his own

@@ -1,6 +1,6 @@
 <template>
   <div class="lg:p-6 mt-6 bg-white border border-border-color rounded-lg shadow">
-    <h1 class="text-[20px] text-center font-nunito font-bold leading-7 text-title-color">
+    <h1 class="text-[20px] text-center lg:text-left  font-nunito font-bold leading-7 text-title-color">
       Buyers List
     </h1>
     <div class="flex items-center justify-center lg:justify-between mb-4 mt-6">

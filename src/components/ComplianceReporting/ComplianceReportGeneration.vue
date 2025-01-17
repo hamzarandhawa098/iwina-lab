@@ -27,19 +27,17 @@
 
       <div class="grid grid-cols-2 gap-4 mt-[22px]">
         <div>
-          <input
+          <GenericInput
             id="fromDate"
             type="date"
             v-model="fromDate"
-            class="w-full font-nunito font-normal text-[14px] leading-5 tracking-[-0.05px] text-Ticket-placeholder px-3 py-[17px] rounded-[8px] border border-Ticket-input"
           />
         </div>
         <div>
-          <input
+          <GenericInput
             id="toDate"
             type="date"
             v-model="toDate"
-            class="w-full font-nunito font-normal text-[14px] leading-5 tracking-[-0.05px] text-Ticket-placeholder px-3 py-[17px] rounded-[8px] border border-Ticket-input"
           />
         </div>
       </div>
@@ -59,6 +57,7 @@
 <script setup>
 import { ref } from "vue";
 import Button from "@/components/global/Button.vue";
+import GenericInput from "@/components/global/GenericInput.vue";
 
 const selectedOrganisation = ref("");
 const fromDate = ref("");

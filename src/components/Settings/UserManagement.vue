@@ -38,9 +38,9 @@
                 </select>
               </td>
               <td>
-                <input
+                <GenericInput
                   v-model="row.permission"
-                  class="font-nunito font-normal text-[14px] leading-5 tracking-[-0.05px] text-Ticket-placeholder px-3 py-[10px] w-full border border-Ticket-input rounded-[8px]"
+                  customClasses="px-3 py-[10px] w-full"
                   placeholder="Enter Permissions"
                 />
               </td>
@@ -86,6 +86,7 @@
   import AvatarTrainer from "@/assets/images/AvatarTrainer.png";
   import Avatar from "@/assets/images/Avatar.png";
   import CustomButton from "@/components/global/CustomButton.vue";
+  import GenericInput from "@/components/global/GenericInput.vue";
   
   defineProps({
     title: String,
@@ -106,14 +107,14 @@
       image: AvatarTrainer,
       role: "Admin",
       status: "Active",
-      permission: "Enter Permissions",
+      permission: "",
     },
     {
       name: "Sophia Johnson",
       image: Avatar,
       role: "Editor",
       status: "Inactive",
-      permission: "Enter Permissions",
+      permission: "",
     },
   ]);
   

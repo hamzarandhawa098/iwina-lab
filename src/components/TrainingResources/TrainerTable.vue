@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:mx-6 mt-[22px]">
+  <div class="mt-[22px] overflow-hidden">
     <div class="overflow-x-auto">
       <table class="w-full">
         <thead>
@@ -30,7 +30,7 @@
                   {{ course.trainerName }}
                 </p>
                 <router-link
-                  :to="{ name: 'TrainerProfile', params: { id: course.id } }"
+                  :to="{ name: 'trainerprofile', params: { id: course.id } }"
                   class="font-nunito font-normal text-[10px] leading-[20.05px] text-primary-color"
                 >
                   View Profile

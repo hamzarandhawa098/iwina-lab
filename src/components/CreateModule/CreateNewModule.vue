@@ -45,11 +45,11 @@
         </div>
 
         <div class="flex flex-col lg:flex-row gap-8">
-          <input
+          <GenericInput
             id="subject"
             v-model="form.subject"
             type="text"
-            class="lg:w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+            customClasses="lg:w-[515px] px-3 py-[10px]"
             :placeholder="courseTitlePlaceholder"
           />
 
@@ -121,6 +121,7 @@
 
 <script setup>
 import Button from "@/components/global/Button.vue";
+import GenericInput from "@/components/global/GenericInput.vue";
 import { ref } from "vue";
 const props = defineProps({
   formTitle: {

@@ -11,12 +11,11 @@
         <img :src="OtpImage" alt="Verification" class="w-[360px] h-[360px]" />
       </div>
       <div class="mt-6 px-4 lg:px-0">
-        <input
+        <GenericInput
           id="otp"
           v-model="otpInput"
           type="text"
           placeholder="Enter OTP"
-          class="w-full font-nunito font-normal text-[14px] leading-5 tracking-[-0.05px] text-Ticket-placeholder py-[17px] px-3 border border-Ticket-input rounded-lg"
         />
         <div class="mt-2 text-red-500" v-if="errorMessage">{{ errorMessage }}</div>
         <div class="mt-6">
@@ -39,6 +38,7 @@ import { useRouter } from 'vue-router';
 import { useAuthStore } from '@/store/authStore';
 import OtpImage from "@/assets/images/OtpImage.png";
 import Button from "@/components/global/Button.vue";
+import GenericInput from '@/components/global/GenericInput.vue';
 
 const router = useRouter();
 const authStore = useAuthStore();

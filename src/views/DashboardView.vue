@@ -20,7 +20,6 @@
   </div>
   <div class="flex flex-col lg:flex-row mt-6 gap-6">
     <ComplianceOverview
-      style="z-index: -1000"
       ComplianceOverviewTitle="Compliance Overview"
       :chartData="chartData"
       :createChart="createChart"
@@ -29,7 +28,6 @@
       :chartLegends="chartLegends"
     />
     <Compliance 
-    style="z-index: -1000;"
     />
   </div>
   <IncidentGraph

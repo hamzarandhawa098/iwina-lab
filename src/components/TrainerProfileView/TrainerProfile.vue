@@ -18,7 +18,7 @@
           <div
             v-for="(stat, index) in stats"
             :key="index"
-            class="flex items-center space-x-[6px]"
+            class="flex flex-col lg:flex-row items-center space-x-[6px]"
           >
             <component :is="stat.icon" />
             <span class="font-nunito font-medium text-[16px] leading-[22px] text-trainer-profile-title">

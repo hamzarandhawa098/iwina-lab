@@ -1,14 +1,14 @@
 <template>
-    <div class="flex items-center max-w-full w-full space-x-6">
+    <div class="flex flex-col lg:flex-row items-center max-w-full w-full gap-6">
       <div class="w-3/4">
         <video
           ref="videoPlayer"
-          class="w-[690px] h-[315px] rounded-xl"
+          class="lg:w-[690px] w-full h-[315px] rounded-xl"
           controls
           :src="video"
         ></video>
       </div>
-      <div class="w-[336px] h-[315px] bg-white border border-border-color rounded-lg shadow-md p-5 text-sm space-y-4">
+      <div class="w-[336px] p-2 lg:h-[315px] bg-white border border-border-color rounded-lg shadow-md lg:p-5 text-sm space-y-4">
         <div v-for="(item, index) in videoDetails" :key="index" class="flex items-center space-x-4">
           <component :is="item.icon" />
           <p class="font-inter text-[16px] leading-[24px] font-normal text-Video-description">{{ item.text }}</p>

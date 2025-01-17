@@ -6,7 +6,7 @@
       Compliance Tools
     </h1>
     <div class="flex justify-center">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         <router-link
           v-for="(tool, index) in tools"
           :key="index"

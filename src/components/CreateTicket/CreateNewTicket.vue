@@ -16,11 +16,11 @@
     <form @submit.prevent="createTicket" class="mt-[22px]">
       <div class="h-[654px]">
         <div class="flex flex-col lg:flex-row gap-8">
-          <input
+          <GenericInput
             id="subject"
             v-model="form.subject"
             type="text"
-            class="lg:w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+            customClasses="lg:w-[515px] px-3 py-[10px]"
             :placeholder="subjectPlaceholder"
           />
 
@@ -29,7 +29,11 @@
             v-model="form.type"
             class="lg:w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
           >
-            <option v-for="option in typeOptions" :key="option.value" :value="option.value">
+            <option
+              v-for="option in typeOptions"
+              :key="option.value"
+              :value="option.value"
+            >
               {{ option.label }}
             </option>
           </select>
@@ -59,7 +63,11 @@
             />
             <UploadImgIcon />
             <p class="text-sm font-inter font-normal text-paragraph-color mt-3">
-              <span class="text-training-button font-semibold text-[14px] leading-[20px]">{{ uploadLabel }}</span> {{ uploadInstruction }}<br />
+              <span
+                class="text-training-button font-semibold text-[14px] leading-[20px]"
+                >{{ uploadLabel }}</span
+              >
+              {{ uploadInstruction }}<br />
               <span class="text-xs">{{ uploadHint }}</span>
             </p>
           </div>
@@ -92,6 +100,7 @@
 import { ref } from "vue";
 import UploadImgIcon from "@/components/icons/UploadImgIcon.vue";
 import Button from "@/components/global/Button.vue";
+import GenericInput from "@/components/global/GenericInput.vue";
 defineProps({
   formTitle: String,
   formSubtitle: String,
@@ -102,9 +111,8 @@ defineProps({
   uploadHint: String,
   cancelButtonText: String,
   submitButtonText: String,
-  typeOptions: Array
+  typeOptions: Array,
 });
-
 
 const form = ref({
   subject: "",
@@ -137,6 +145,4 @@ const triggerFileInput = () => {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

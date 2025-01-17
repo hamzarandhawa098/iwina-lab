@@ -4,7 +4,7 @@
     currentPageText="Product Details"
     slash="/"
   />
-  <div class="flex justify-between items-start mt-8">
+  <div class="flex flex-col lg:flex-row justify-between items-center  lg:items-start mt-8">
     <PageTitle title="Product Details" />
     <div>
       <router-link to="/edit-product">

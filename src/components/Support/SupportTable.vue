@@ -65,7 +65,7 @@
               :base-classes="'px-[32px] py-2 rounded-[8px]'"
             >
               <router-link
-                :to="{ name: 'SupportDetails', params: { id: row.id } }"
+                :to="{ name: 'supportdetails', params: { id: row.id } }"
               >
                 View
               </router-link>

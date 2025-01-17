@@ -33,7 +33,7 @@
           <input
             type="text"
             placeholder="Search"
-            class="block w-full pl-10 px-[14px] py-[11px] font-nunito font-normal text-[16px] leading-[22px] tracking-[-0.18px] text-Search-Text"
+            class="block w-full pl-10 px-[14px] py-[11px] border font-nunito font-normal text-[16px] leading-[22px] tracking-[-0.18px] text-Search-Text"
           />
         </div>
       </div>
@@ -103,6 +103,7 @@
 import Table from "@/components/global/Table.vue";
 import SearchIcon from "@/components/icons/SearchIcon.vue";
 import CustomButton from "@/components/global/CustomButton.vue";
+import GenericInput from "../global/GenericInput.vue";
 
 const tableData = [
   {

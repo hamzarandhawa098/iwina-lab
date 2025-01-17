@@ -38,6 +38,9 @@ line-height: 18px !important;
 input {
     outline: none  !important;
 }
+textarea{
+    outline: none !important;
+}
 
 .table-container {
     overflow-x: auto !important;

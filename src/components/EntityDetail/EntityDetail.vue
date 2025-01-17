@@ -135,6 +135,7 @@
   <script setup>
   import { ref } from "vue";
   import Button from "@/components/global/Button.vue";
+  import GenericInput from "@/components/global/GenericInput.vue";
   
   const profileInfo = ref({
     "Entity Name": "Steeve Chemicals",

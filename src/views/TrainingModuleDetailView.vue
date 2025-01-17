@@ -4,7 +4,7 @@
     currentPageText="Training Module Details"
     slash="/"
   />
-  <div class="flex justify-between items-start mt-8">
+  <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start mt-8">
     <PageTitle title="Training Module Detail" />
     <div>
       <router-link to="#">
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div
-    class="px-6 py-5 mt-4 w-[1103px] bg-white border border-border-color rounded-lg shadow"
+    class="px-6 py-5 mt-4 w-full lg:w-[1103px] bg-white border border-border-color rounded-lg shadow"
   >
     <TrainingModuleTitle
       :icon="StarIcon"
@@ -33,7 +33,7 @@
       :video="video"
       :videoDetails="videoDetails"
     />
-    <div class="flex justify-center mt-6 space-x-6">
+    <div class="flex flex-col lg:flex-row justify-center mt-6 space-x-6">
       <div class="max-w-[690px] w-full space-y-4">
         <TrainingModuleDescription
           descriptionButton="Description"

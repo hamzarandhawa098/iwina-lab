@@ -99,6 +99,7 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from "vue";
 import { useRoute } from "vue-router";
+import GenericInput from "@/components/global/GenericInput.vue";
 
 const route = useRoute();
 const sidebarOpen = ref(false);

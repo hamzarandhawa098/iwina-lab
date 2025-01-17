@@ -15,11 +15,10 @@
         </h2>
         <form @submit.prevent="generateReport" class="mt-6">
           <div class="mb-6">
-            <input
+            <GenericInput
               v-model="form.fullName"
               id="fullName"
               type="text"
-              class="w-full px-3 py-[17px] font-nunito font-normal border border-Ticket-input rounded-lg text-[14px] leading-5 tracking-[-0.05px] text-Ticket-placeholder"
               placeholder="Full Name"
               required
             />
@@ -37,21 +36,19 @@
             </select>
           </div>
           <div class="mb-6">
-            <input
+            <GenericInput
               v-model="form.fromDate"
               id="fromDate"
               type="date"
-              class="w-full px-3 py-[17px] font-nunito font-normal border border-Ticket-input rounded-lg text-[14px] leading-5 tracking-[-0.05px] text-Ticket-placeholder"
               required
               placeholder="From (Select Date)"
             />
           </div>
           <div class="mb-6">
-            <input
+            <GenericInput
               v-model="form.toDate"
               id="toDate"
               type="date"
-              class="w-full px-3 py-[17px] font-nunito font-normal border border-Ticket-input rounded-lg text-[14px] leading-5 tracking-[-0.05px] text-Ticket-placeholder"
               required
               placeholder="To (Select Date)"
             />
@@ -71,6 +68,7 @@
   <script setup>
   import { reactive, defineProps, defineEmits, onMounted, onBeforeUnmount } from "vue";
   import Button from "@/components/global/Button.vue";
+  import GenericInput from "@/components/global/GenericInput.vue";
   
   const props = defineProps({
     isOpen: {

@@ -1,28 +1,28 @@
 <template>
   <div>
-    <div class="bg-white flex flex-col md:flex-row w-[1055px] space-x-6">
+    <div class="bg-white flex flex-col lg:flex-row w-full lg:w-[1055px] gap-6">
       <div>
-        <div class="w-[505px] h-[449px]">
+        <div class="lg:w-[505px] w-auto h-[449px]">
           <img
             :src="mainImage"
             alt="Product"
             class="w-full h-full object-cover"
           />
         </div>
-        <div class="flex justify-start mt-[22.12px] space-x-[9.22px]">
+        <div class="grid grid-cols-3 lg:grid-cols-6  mt-[22.12px] gap-[9.22px]">
           <img
             v-for="(thumb, index) in thumbnails"
             :key="index"
             :src="thumb"
             alt="Thumbnail"
-            class="w-[76.49px] h-[78.33px] object-cover border rounded-lg cursor-pointer"
+            class="lg:w-[76.49px] w-auto h-[78.33px] object-cover border rounded-lg cursor-pointer"
             :class="{ 'border-blue-500': mainImage === thumb }"
             @click="mainImage = thumb"
           />
         </div>
       </div>
 
-      <div class="bg-white border border-color rounded-lg shadow w-[526px] p-5">
+      <div class="bg-white border border-color rounded-lg shadow w-full lg:w-[526px] p-5">
         <h1
           class="font-nunito font-semibold text-[32px] leading-[40px] tracking-[-1%] text-trainer-profile-title"
         >
@@ -34,7 +34,7 @@
           ${{ product.price }}
         </p>
 
-        <div class="flex items-center mt-5 space-x-3">
+        <div class="flex items-center mt-5 gap-3">
           <div class="flex space-x-1">
             <component :is="ratingicon" v-for="i in 5" :key="i" />
           </div>
@@ -53,7 +53,7 @@
             Features
           </h2>
           <ul
-            class="list-disc list-inside ml-2 font-nunito font-normal text-[18px] leading-[26px] text-features-text-title mt-6"
+            class="list-disc list-inside lg:ml-2 font-nunito font-normal text-[18px] leading-[26px] text-features-text-title mt-6"
           >
             <li v-for="(feature, index) in product.features" :key="index">
               {{ feature }}
