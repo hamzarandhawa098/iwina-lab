@@ -2,7 +2,7 @@
     <nav>
       <ol class="flex space-x-3">
         <li>
-          <router-link href="/support" class="font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05] text-bar-graph-legends">{{ linkText }}</router-link>
+          <router-link class="font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05] text-bar-graph-legends">{{ linkText }}</router-link>
         </li>
         <li>
           <span class="text-slash-color h-[9.45px] ">{{ slash }}</span>

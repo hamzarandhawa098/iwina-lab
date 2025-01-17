@@ -246,7 +246,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
-
   if (to.path === '/login' || to.path === '/otp' || to.path === '/regulator/register' || to.path === '/buyer/register') {
     next();
   } else if (!authStore.token) {

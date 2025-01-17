@@ -41,6 +41,10 @@ input {
 textarea{
     outline: none !important;
 }
+select{
+    outline: none !important;
+}
+
 
 .table-container {
     overflow-x: auto !important;

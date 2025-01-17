@@ -70,7 +70,7 @@
             v-model="form.lessons"
             class="lg:w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
           >
-            <option v-for="option in lessonOptions" :key="option.value" :value="option.value">
+            <option v-for="option in lessonOptions" :key="option.value" :value="option.value" class="w-full">
               {{ option.label }}
             </option>
           </select>

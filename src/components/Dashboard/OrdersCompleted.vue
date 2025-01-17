@@ -4,7 +4,7 @@
         <h2 class="lg:text-[20px] font-nunito font-bold leading-7 text-title-color">{{ OrderCompletedTitle }}</h2>
         <div class="relative">
           <button
-            class="appearance-none border border-light-color rounded-[8px] px-5 py-3 text-xs font-nunito font-normal leading-[18px] w-full text-left flex items-center justify-between"
+            class="appearance-none border z-10 border-light-color rounded-[8px] px-5 py-3 text-xs font-nunito font-normal leading-[18px] w-full text-left flex items-center justify-between"
             @click="toggleDropdown"
           >
             {{ dropdownLabel }}

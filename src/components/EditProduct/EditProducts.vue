@@ -1,6 +1,6 @@
 <template>
   <div
-    class="px-6 py-5 w-[1111px] bg-white rounded-lg shadow-md border border-border-color h-[936px]"
+    class="px-6 py-5 w-full lg:w-[1111px] bg-white rounded-lg shadow-md border border-border-color h-[936px]"
   >
     <div>
       <h2
@@ -26,7 +26,7 @@
               <AddProductIcon />
             </button>
           </div>
-          <div class="flex space-x-6 mt-3">
+          <div class="flex flex-col lg:flex-row justify-center items-center gap-6 mt-3">
             <div v-for="(photo, index) in photos" :key="index" class="relative">
               <img
                 :src="photo"
@@ -40,7 +40,7 @@
             <select
               id="type"
               v-model="form.type"
-              class="w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+              class="lg:w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
             >
               <option
                 v-for="option in organisationOptions"
@@ -71,7 +71,7 @@
             <select
               id="trainer"
               v-model="form.trainer"
-              class="w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+              class="lg:w-[515px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
             >
               <option
                 v-for="option in trainerOptions"
@@ -88,13 +88,13 @@
               id="description"
               v-model="form.description"
               rows="12"
-              class="w-[1063px] px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
+              class="lg:w-[1063px] w-full px-3 py-[10px] rounded-[8px] border border-Ticket-input font-nunito font-normal text-[14px] leading-[20px] tracking-[-0.05px] text-Ticket-placeholder"
               :placeholder="descriptionPlaceholder"
             ></textarea>
           </div>
         </div>
 
-        <div class="flex justify-end space-x-4 mt-[22px]">
+        <div class="flex flex-col lg:flex-row justify-end gap-4 mt-[22px]">
           <Button
             type="button"
             :text="cancelButtonText"

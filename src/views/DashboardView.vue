@@ -10,7 +10,6 @@
   <div class="flex flex-col xl:flex-row justify-between mt-6 gap-6">
     <OrdersCompleted
       :OrderCompletedTitle="'Orders Completed'"
-      style="z-index: -10"
     />
     <TrainingModule
       TrainigModulesTitle="Upcoming Training Module"
